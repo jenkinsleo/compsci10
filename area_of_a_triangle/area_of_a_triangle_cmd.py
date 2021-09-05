@@ -2,7 +2,7 @@
 
 #args: base, height
 
-#example command: python area_of_a_triangle.py 10 20
+#example command: python area_of_a_triangle_cmd.py 10 20
 #example return: 100.0
 
 

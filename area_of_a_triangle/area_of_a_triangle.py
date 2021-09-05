@@ -3,6 +3,7 @@
 
 class Triangle():
     
+    #these are the default variables for the triangle making it possible to calculate the area without running calculate_area()
     height = 0
     base = 0
 
@@ -16,10 +17,10 @@ class Triangle():
 
     def get_params(self):
         #gets height from user
-        self.height = int(input("Height of triangle: "))
+        self.height = float(input("Height of triangle: "))
 
         #gets base of triangle
-        self.base = int(input("Base of triangle: "))
+        self.base = float(input("Base of triangle: "))
 
     
 

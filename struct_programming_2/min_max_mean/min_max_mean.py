@@ -2,7 +2,6 @@
 
 count = 0
 sum = 0
-min = float
 max = 0
 while True:
     num = input("Enter a number (Q to quit): ")
@@ -14,8 +13,14 @@ while True:
 
         if num > max:
             max = num
-        else num < min:
+        
+        if count == 1:
             min = num
+        elif num < min:
+            min = num
+
+
+
     except:
         if num.upper() == "Q":
             print(f"Min: {min} Max: {max} Mean: {sum / count}")

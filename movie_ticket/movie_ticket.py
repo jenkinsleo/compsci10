@@ -1,29 +1,41 @@
-#simple program to get movie preferences and format nicely a movie ticket as well as save to a pdf for easy printing
+#simple program to get movie preferences and format nicely a movie ticket
+LINE_SPLIT = "\n"
 
+ADULT_PRICE = 12.50
+CHILD_PRICE = 8.25
+SENIOR_DISCOUNT_DECIMAL = 0.75
 
 #gets the movie preferences (movie name, number of adults, number of children, number of seniors) then calculates total and returns all
 
 def movie_preferences():
-    movie_name = str(input("Movie name: "))
-    num_adults = int(input("Number of adults: "))
-    num_children = int(input("Number of children: "))
-    num_seniors = int(input("Number of seniors: "))
+    movie_name = str(input("Movie name?:"))
+    num_adults = int(input("Number of adults?:"))
+    num_children = int(input("Number of children?:"))
+    num_seniors = int(input("Number of seniors?:"))
 
     #the prices per tickets
-    adult_ticket = 12.50
-    child_ticket = 8.25
+    adult_ticket = ADULT_PRICE
+    child_ticket = CHILD_PRICE
     #percentage that the seniors get off (i could have put just the cost but that seemed too boring)
-    senior_percentage = 25
+    senior_percentage = SENIOR_DISCOUNT_DECIMAL
 
+    #adult total cost
     adult_cost = adult_ticket * num_adults
+
+    #child total cost
     child_cost = child_ticket * num_children
-    senior_cost = num_seniors * adult_ticket * (1.00 - senior_percentage / 100)
+
+    #senior cost is seniors x adult price x discount
+    senior_cost = float(num_seniors * adult_ticket * senior_percentage)
+
+    #total cost
     total_cost = adult_cost + child_cost + senior_cost
 
     #values will be returned movie_name, num_adults, num_children, num_seniors, total_cost
     return movie_name, num_adults, num_children, num_seniors, total_cost
 
 def format_ticket(name, adults, child, senior, cost):
+    #creates a list for each individual line then at the end joins together with line split
     ticket = []
 
     #first line starts with 30 dashes
@@ -44,7 +56,9 @@ def format_ticket(name, adults, child, senior, cost):
     ticket.append(fifth_line)
 
     #last line is the cost centered to the right as well 
-    sixth_line = "| " + '{:13}'.format("Total:") + '{:>13}'.format(round(cost, 2)) + " |"
+    total_price = round(cost, 2)
+    format_total_price = "{:.2f}".format(total_price)
+    sixth_line = "| " + '{:16}'.format("Total:") + "{:>4}".format(str("$ ")) + "{:>6}".format(format_total_price) + " |"
     ticket.append(sixth_line)
 
     #finish off with the closing dashes
@@ -52,9 +66,8 @@ def format_ticket(name, adults, child, senior, cost):
     ticket.append(seventh_line)
 
     #combines the ticket into one large string with \n
-    split = "\n"
 
-    return split.join(ticket)
+    return LINE_SPLIT.join(ticket)
 
 
 

@@ -2,10 +2,10 @@
 # occurences of the word 'Ni! '. Do not use multiplicaton!
 # Refer to unit tests for examples
 
-n = int(input("Repeat: "))
+repeat_amount = int(input("Repeat: "))
 repeated_string = ""
 
-for x in n:
+for repeat in range(0, repeat_amount):
     repeated_string = repeated_string + "Ni! "
 
 print(repeated_string)

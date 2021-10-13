@@ -11,16 +11,16 @@
 #  product of all values within bounds.
 #       output = n * (n + 1) * (n+2) ... * m
 
-n = int(input("Lower: "))
-m = int(input("Upper: "))
+lower_bound = int(input("Lower: "))
+upper_bound = int(input("Upper: "))
 
 #make sure max is above 0
-if m < n:
+if upper_bound < lower_bound:
     print("INVALID")
     exit()
 
-number = n
-for x in range(n, m):
-    number = number * (x + 1) 
+total_product = lower_bound
+for x in range(lower_bound, upper_bound):
+    total_product = total_product * (x + 1) 
 
-print(number)
+print(total_product)

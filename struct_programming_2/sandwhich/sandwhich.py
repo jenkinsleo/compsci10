@@ -9,7 +9,7 @@ def get_order():
     final_order = {"toppings": []}
     #gets the user order and returns a dict with their choices
 
-    size = str(input("Large or small (L or S): ")).upper()
+    size = str(input("Large or small (L or S)?:")).upper()
     if size == "L":
         final_order["size"] = 'large'
 
@@ -54,9 +54,10 @@ def calculate_cost(order):
     for x in order["toppings"]:
         price_temp = prices[x]
         total_cost = total_cost + price_temp
-
-    return total_cost
+    
+    return f"{total_cost:.2f}"
 
 
 if __name__ == "__main__":
+    
     print(f"The total cost is: ${calculate_cost(get_order())}")

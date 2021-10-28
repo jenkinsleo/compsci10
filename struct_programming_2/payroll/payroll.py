@@ -8,9 +8,9 @@ tax_percent = 18
 
 #gets input from user
 def get_params():
-    hours = float(input("How many hours worked?: "))
-    wage = float(input("What is the pay per hour?: "))
-    tax_exempt = str(input("Are taxes exempt (Y / N)?: ")).upper()
+    hours = float(input("How many hours worked?:"))
+    wage = float(input("What is the pay per hour?:"))
+    tax_exempt = str(input("Are taxes exempt (Y / N)?:")).upper()
 
     #returns true / false based on response
     if tax_exempt == "Y":

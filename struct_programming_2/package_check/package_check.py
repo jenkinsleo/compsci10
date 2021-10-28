@@ -1,6 +1,6 @@
 #simple program to check if the package is supported or not
-weight_limit = 27
-size_limit = 0.1
+WEIGHT_LIMIT = 27
+SIZE_LIMIT = 0.1
 #gets 4 inputs
 weight = float(input("What is the weight: "))
 
@@ -13,13 +13,13 @@ height = float(input("What is the height: "))
 dimension = (length / 100) * (width / 100) * (height / 100)
 
 #creates the output
-if weight > weight_limit and dimension > size_limit:
-    response = "too large and heavy"
-elif weight > weight_limit:
+if weight > WEIGHT_LIMIT and dimension > SIZE_LIMIT:
+    response = "too heavy and too large"
+elif weight > WEIGHT_LIMIT:
     response = "too heavy"
-elif dimension > size_limit:
+elif dimension > SIZE_LIMIT:
     response = "too large"
-elif dimension <= size_limit and weight <= weight_limit:
+elif dimension <= SIZE_LIMIT and weight <= WEIGHT_LIMIT:
     response = "accepted"
 
 print(response)

@@ -8,9 +8,9 @@ tax_percent = 18
 
 #gets input from user
 def get_params():
-    hours = float(input("How many hours worked?:"))
-    wage = float(input("What is the pay per hour?:"))
-    tax_exempt = str(input("Are taxes exempt (Y / N)?:")).upper()
+    hours = float(input("How many hours worked?:").replace('"',''))
+    wage = float(input("What is the pay per hour?:").replace('"',''))
+    tax_exempt = str(input("Are taxes exempt (Y / N)?:")).upper().replace('"','')
 
     #returns true / false based on response
     if tax_exempt == "Y":
@@ -51,5 +51,6 @@ if __name__ == "__main__":
     hours, wage, tax_exempt = get_params()
     net_earnings = calculate_pay(hours, wage, tax_exempt)
 
-    print(net_earnings)
+    #formats final output
+    print('$ ' + '{0:.2f}'.format(net_earnings))
 

@@ -21,5 +21,7 @@ elif dimension > SIZE_LIMIT:
     response = "too large"
 elif dimension <= SIZE_LIMIT and weight <= WEIGHT_LIMIT:
     response = "accepted"
+else:
+    response = "INVALID"
 
 print(response)

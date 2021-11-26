@@ -2,23 +2,31 @@
 
 #gets the 2 numbers
 
-number_1 = int(input("Enter number 1?:"))
-number_2 = int(input("Enter number 2?:"))
+number_1 = int(input("Enter number 1?:").replace('"',''))
+number_2 = int(input("Enter number 2?:").replace('"',''))
 
 
 final_total = 0
 final_response = ""
 
-for number in range(number_1, number_2 + 1):
-    final_total += number
+if number_2 >= number_1:
+    valid = True
+else:
+    valid = False
+if valid:
+    for number in range(number_1, number_2 + 1):
+        final_total += number
 
 
-    if number == number_1:
-        final_response = f"{number}"
-    else:
-        final_response += f" + {number}"
+        if number == number_1:
+            final_response = f"{number}"
+        else:
+            final_response += f" + {number}"
 
-#adds the final number add the the end of the string and prints
-final_response += f" = {str(number)}"
+    #adds the final number add the the end of the string and prints
+    final_response += f" = {str(final_total)}"
 
-print(final_response)
+    print(final_response)
+
+else:
+    print("INVALID")

@@ -13,19 +13,24 @@ def get_params():
 
 def create_data(numbers, factors):
     multiple_dict = {'numbers': numbers, 'factors':factors}
+    multiple_dict1 = {}
 
     for x in factors:
         factor_list = []
         for y in numbers:
             factor_list.append(x*y)
 
-        multiple_dict[x] = factor_list
+        multiple_dict1[x] = factor_list
+
+    multiple_dict['factor_list'] = multiple_dict1
 
     return multiple_dict
 
-def format_data():
-    pass
+def format_data(data):
+    print(data['numbers'])
+    for x in data['factor_list']:
+        print(x)
 
 
 numbers, factors = get_params()
-print(create_data(numbers, factors))
+format_data(create_data(numbers, factors))

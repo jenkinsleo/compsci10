@@ -1,24 +1,25 @@
 #currency object file
 #import this from another script
 #made by yours truly
-COIN_VALUE = {'quarters':25, 'dimes': 10, 'nickels':5, 'pennies': 1}
+COIN_VALUE = {"quarter": 0.25, "dimes": 0.1, "nickel": 0.05, "penny": 0.01}
 
 
 
+#idk does some stuff I just dont want to not comment what this does
 def add_coins(quarters, dimes,nickels,pennies=0):
-    final_value_in_cents = 0
+    final_value_in_dollars = 0
 
-    final_value_in_cents += quarters * COIN_VALUE['quarters']
-    final_value_in_cents += dimes * COIN_VALUE['dimes']
-    final_value_in_cents += nickels * COIN_VALUE['nickels']
-    final_value_in_cents += pennies * COIN_VALUE['pennies']
+    final_value_in_dollars += quarters * COIN_VALUE['quarter']
+    final_value_in_dollars += dimes * COIN_VALUE['dimes']
+    final_value_in_dollars += nickels * COIN_VALUE['nickel']
+    final_value_in_dollars += pennies * COIN_VALUE['penny']
     
-    final_value_in_dollars = final_value_in_cents / 100
+    
     return final_value_in_dollars
 
-
+#makes change thisfrom the other assignment
 def make_change(dollar_value):
-     #starts with the higher value coins then works down the the lower value by bringing over the remainder
+    #starts with the higher value coins then works down the the lower value by bringing over the remainder
 
     new_money = dollar_value
     final_coins = {}
@@ -33,13 +34,13 @@ def make_change(dollar_value):
         #rounds and adds to the variable to be checked again with the next lowest coin interval
         new_money = round(remainder, 2)
 
-    return (final_coins["quarters"], final_coins["dimes"], final_coins["nickels"], final_coins["pennies"])
+    return (int(final_coins['quarter']),int(final_coins['dimes']),int(final_coins['nickel']),int(final_coins['penny']))
 
-
+#makes string from a tuple
 def to_string_from_tuple(money_list):
-    return f'quarters:{int(money_list[0])}; dimes:{int(money_list[11])}; nickels:{int(money_list[2])}; pennies:{int(money_list[3])}'
+    return f'quarters:{int(money_list[0])}; dimes:{int(money_list[1])}; nickels:{int(money_list[2])}; pennies:{int(money_list[3])}'
 
-
+#makes a string not from a tuple
 def to_string(quarters, dimes,nickels,pennies):
 
     return to_string_from_tuple((quarters,dimes,nickels,pennies))

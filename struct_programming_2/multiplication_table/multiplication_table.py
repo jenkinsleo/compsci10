@@ -1,9 +1,13 @@
+#simple program to make a multiplication table
+
+
+#gets inputs
 start_factor = int(input("Starting number ?: "))
 end_factor = int(input("Ending number ?: "))
 start_number = int(input("Starting Factor ?: "))
 end_number = int(input("Ending Factor ?: "))
 
-output = '    '
+output = '   '
 
 if start_number <= end_number:
     for num in range(start_number, end_number + 1):

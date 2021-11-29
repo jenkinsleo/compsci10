@@ -1,10 +1,10 @@
 #a simple program to calculate an employees earnings
 
 #overtime is payed after the work week is passed
-work_week = 40
-overtime_percent = 1.5
+WORK_WEEK = 40
+OVERTIME_PERCENT = 1.5
 #employee is automatically taxed unless specified otherwise
-tax_percent = 18
+TAX_PERCENT = 18
 
 #gets input from user
 def get_params():
@@ -24,9 +24,9 @@ def get_params():
 #calculates the pay and returns a float value of either net or gross earnings
 def calculate_pay(hours,wage,tax_exempt):
     #first checks how much should be payed as overtime
-    if hours > 40:
-        overtime_hours = hours - 40
-        base_pay = (overtime_hours * wage) * overtime_percent
+    if hours > WORK_WEEK:
+        overtime_hours = hours - WORK_WEEK
+        base_pay = (overtime_hours * wage) * OVERTIME_PERCENT
 
         hours = hours - overtime_hours
 
@@ -41,7 +41,7 @@ def calculate_pay(hours,wage,tax_exempt):
         return round(base_pay, 2)
 
     else:
-        taxed_pay_percent = 1 - (tax_percent / 100)
+        taxed_pay_percent = 1 - (TAX_PERCENT / 100)
         base_pay = base_pay * taxed_pay_percent
 
         return round(base_pay, 2)

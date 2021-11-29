@@ -14,13 +14,18 @@
 lower_bound = int(input("Lower: "))
 upper_bound = int(input("Upper: "))
 
+
 #make sure max is above 0
 if upper_bound < lower_bound:
     print("INVALID")
-    exit()
+    valid = True
+else:
+    valid = False
 
 total_product = lower_bound
-for x in range(lower_bound, upper_bound):
-    total_product = total_product * (x + 1) 
+if valid == False:
 
-print(total_product)
+    for x in range(lower_bound, upper_bound):
+        total_product = total_product * (x + 1) 
+
+    print(total_product)

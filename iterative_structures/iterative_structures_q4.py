@@ -34,19 +34,22 @@ import hashlib
 ##    Entry denied
 
 count = 0
-while True:
+run = True
+while run:
     pw = hashlib.md5(input("Password: ").encode())
     pw = pw.hexdigest()
 
     if pw == password_md5:
         print("You may pass")
-        exit()
+        run = False
     else:
         count = count + 1
         if count == 3:
             print("Entry denied")
-            exit()
-        print("Try again")
+            run = False
+        if run == True:
+
+            print("Try again")
 
 
 

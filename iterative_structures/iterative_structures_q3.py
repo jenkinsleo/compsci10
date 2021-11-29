@@ -14,10 +14,11 @@ value = float(input("Value: "))
 divisor = float(input("Divisor: "))
 
 number_divisions = 0
-while True:
+run = True
+while run:
     number_divisions =  number_divisions + 1
     if value <= divisor:
-        break
+        run = False
 
     value = value // divisor
 

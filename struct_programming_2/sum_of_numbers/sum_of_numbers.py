@@ -26,7 +26,10 @@ if valid:
     #adds the final number add the the end of the string and prints
     final_response += f" = {str(final_total)}"
 
-    print(final_response)
+    
 
 else:
-    print("INVALID")
+    final_response = "INVALID"
+
+
+print(final_response)
